@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Free Fire Reward Redemption</title>
+
+<style>
+body {
+  margin: 0;
+  background: #0b0b0b;
+  font-family: Arial, sans-serif;
+  color: white;
+}
+
+.header {
+  background: #ff9c00;
+  padding: 15px;
+  text-align: center;
+  font-weight: bold;
+  color: black;
+  font-size: 20px;
+}
+
+.container {
+  max-width: 400px;
+  margin: 50px auto;
+  background: #141414;
+  padding: 25px;
+  border-radius: 6px;
+}
+
+h2 {
+  text-align: center;
+  color: #ff9c00;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  background: #1f1f1f;
+  border: 1px solid #333;
+  color: white;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  background: #ff9c00;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.loader {
+  margin-top: 20px;
+  display: none;
+}
+
+.bar {
+  width: 0%;
+  height: 10px;
+  background: #ff9c00;
+}
+
+.redeem-box {
+  display: none;
+  margin-top: 25px;
+  text-align: center;
+}
+
+.flash {
+  animation: flashRed 0.25s linear 10;
+}
+
+@keyframes flashRed {
+  0% { background: #0b0b0b; }
+  50% { background: red; }
+  100% { background: #0b0b0b; }
+}
+
+.warning {
+  color: #ff2222;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.scare {
+  color: #ff6666;
+  font-size: 14px;
+  margin-top: 10px;
+  line-height: 1.4;
+}
+</style>
+</head>
+
+<body id="body">
+
+<div class="header">FREE FIRE REWARD REDEMPTION</div>
+
+<div class="container">
+  <h2>Redeem Your Code</h2>
+
+  <input type="text" placeholder="Enter 12-character code" disabled>
+  <button onclick="startPrank()">CONFIRM</button>
+
+  <div class="loader" id="loader">
+    <p>⏳ Verifying code…</p>
+    <div style="background:#333;">
+      <div class="bar" id="bar"></div>
+    </div>
+  </div>
+
+  <div class="redeem-box" id="reward">
+    <p class="warning">⚠️ ACCOUNT AT RISK ⚠️</p>
+
+    <p class="scare">
+      Suspicious activity detected.<br>
+      Your Free Fire account may be <b>SUSPENDED</b>.<br><br>
+      ⚠️ चेतावनी: गलत गतिविधि पाई गई है।<br>
+      आपका अकाउंट <b>BLOCK</b> हो सकता है।
+    </p>
+
+    <p style="margin-top:10px;">Tap play to verify identity 🔊</p>
+
+    <iframe
+      src="https://www.myinstants.com/embed/mat-kar-beta-mat-kar-emiway-bantai-47455/"
+      width="200"
+      height="100"
+      frameborder="0">
+    </iframe>
+  </div>
+</div>
+
+<script>
+function startPrank() {
+  document.getElementById("loader").style.display = "block";
+  let bar = document.getElementById("bar");
+  let width = 0;
+
+  let interval = setInterval(() => {
+    width += 10;
+    bar.style.width = width + "%";
+
+    if (width >= 100) {
+      clearInterval(interval);
+      document.getElementById("loader").style.display = "none";
+
+      // FLASH RED EFFECT
+      document.getElementById("body").classList.add("flash");
+
+      setTimeout(() => {
+        document.getElementById("reward").style.display = "block";
+      }, 2200);
+    }
+  }, 300);
+}
+</script>
+
+</body>
+</html>
